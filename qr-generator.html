@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5WHL495HY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P5WHL495HY');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+         crossorigin="anonymous"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QR Code Generator",
+      "description": "Generate high-quality, customizable QR codes for URLs, text, and mobile deep links with instant download capability.",
+      "url": "https://mobiview.github.io/tools/qr-generator",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Instant QR code generation",
+        "High-resolution PNG download",
+        "Customizable data types",
+        "Mobile-optimized scanning patterns"
+      ]
+    }
+    </script>    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - Instant Mobile Links | Mobile Viewer Io</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .qr-workspace {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            padding: var(--space-xl) 0;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .qr-workspace { grid-template-columns: 1fr; }
+        }
+
+        .qr-input-card {
+            background: var(--color-bg-secondary);
+            padding: var(--space-xl);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .qr-output-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            background: white;
+            border: 2px dashed var(--color-border);
+            border-radius: var(--radius-lg);
+            min-height: 350px;
+        }
+
+        #qrCanvas {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: var(--space-lg);
+            background: #eee; /* Placeholder style */
+        }
+
+        .input-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: var(--font-size-sm);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: var(--space-3xl) auto 0;
+            line-height: var(--line-height-relaxed);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container" style="padding-top: var(--space-3xl);">
+        <section class="section">
+            <header style="text-align: center; margin-bottom: var(--space-2xl);">
+                <h1>QR Code Generator</h1>
+                <p>Bridge the gap between physical and digital by creating scannable links for your mobile projects.</p>
+            </header>
+
+            <div class="qr-workspace">
+                <div class="qr-input-card">
+                    <div class="input-group">
+                        <label for="qrData">Target URL or Text</label>
+                        <input type="text" id="qrData" class="control-input" placeholder="https://example.com" value="https://example.com">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="qrSize">Size (Pixels)</label>
+                        <select id="qrSize" class="control-input">
+                            <option value="256">256 x 256</option>
+                            <option value="512" selected>512 x 512</option>
+                            <option value="1024">1024 x 1024</option>
+                        </select>
+                    </div>
+
+                    <button onclick="generateQR()" class="btn btn-primary" style="width: 100%; margin-top: var(--space-md);">Generate QR Code</button>
+                </div>
+
+                <div class="qr-output-card">
+                    <div id="qrResult">
+                        <div id="qrPlaceholder" style="width: 200px; height: 200px; background: #f1f5f9; border-radius: 8px; display: flex; align-items: center; text-align: center; padding: 20px; color: #64748b;">
+                            Enter data and click generate
+                        </div>
+                    </div>
+                    <button id="downloadBtn" class="btn btn-outline btn-sm" style="display: none; margin-top: var(--space-md);" onclick="downloadQR()">Download PNG</button>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section article-content">
+            <h2>Seamless Mobile Onboarding</h2>
+            <p>
+                In 2026, the QR code has evolved from a simple marketing gimmick into a critical tool for **User Experience (UX)**. 
+                Whether you are testing a Progressive Web App (PWA) on a physical device or inviting users to a beta testing group, 
+                a high-resolution QR code ensures that the handoff from desktop to mobile is frictionless.
+            </p>
+            <h3>How to Generate Your QR Code</h3>
+            <ol>
+                <li><strong>Enter Content:</strong> Paste your website URL, deep link, or plain text into the input field.</li>
+                <li><strong>Choose Resolution:</strong> Select a size. Use larger dimensions (1024px) for print materials and smaller ones for digital screens.</li>
+                <li><strong>Test and Download:</strong> Before downloading, use your mobile camera to verify the scan. Once confirmed, save the PNG for your documentation or marketing assets.</li>
+            </ol>
+            <blockquote>
+                "A QR code is the shortest distance between a physical user and a digital experience."
+            </blockquote>
+            <h3>Best Practices for Scannability</h3>
+            <p>
+                To ensure your codes work every time, maintain a high contrast ratio—ideally black patterns on a white background. 
+                Avoid placing too much data in a single code, as this increases the density of the dots and makes it harder 
+                for older smartphone cameras to resolve the pattern.
+            </p>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <script src="../script.js"></script>
+    <script>
+        function generateQR() {
+            const data = encodeURIComponent(document.getElementById('qrData').value);
+            const size = document.getElementById('qrSize').value;
+            const resultDiv = document.getElementById('qrResult');
+            const downloadBtn = document.getElementById('downloadBtn');
+            
+            if (!data) return;
+
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${data}`;
+            
+            resultDiv.innerHTML = `<img src="${qrUrl}" id="qrImage" alt="Generated QR Code" style="max-width: 100%; border-radius: 8px; box-shadow: var(--shadow-md);">`;
+            downloadBtn.style.display = 'inline-block';
+        }
+
+        function downloadQR() {
+            const img = document.getElementById('qrImage');
+            if (!img) return;
+            
+            // Open image in new tab for easy saving across all browsers
+            window.open(img.src, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5WHL495HY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P5WHL495HY');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+         crossorigin="anonymous"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Device Frames Mockup Tool",
+      "description": "Generate high-fidelity device mockups for websites including realistic iPhone and Laptop frames for professional presentations.",
+      "url": "https://mobiview.github.io/tools/device-frames",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Realistic CSS device frames",
+        "Mobile and Desktop toggle",
+        "Live URL embedding",
+        "High-fidelity presentation mode"
+      ]
+    }
+    </script>    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Frames - Professional Website Mockups | Mobile Viewer Io</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .frames-workspace {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-3xl) 0;
+            background: #f8fafc;
+            min-height: 700px;
+            overflow: hidden;
+        }
+
+        /* Realistic Phone Frame */
+        .phone-frame {
+            width: 320px;
+            height: 650px;
+            background: #1e293b;
+            border-radius: 40px;
+            padding: 12px;
+            border: 4px solid #475569;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 25px;
+            background: #1e293b;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            z-index: 10;
+        }
+
+        /* Realistic Laptop Frame */
+        .laptop-frame {
+            width: 900px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .laptop-screen {
+            width: 100%;
+            height: 500px;
+            background: #1e293b;
+            border-radius: 15px 15px 0 0;
+            padding: 15px;
+            border: 3px solid #475569;
+        }
+
+        .laptop-base {
+            width: 110%;
+            height: 20px;
+            background: #94a3b8;
+            border-radius: 0 0 15px 15px;
+            position: relative;
+        }
+
+        .frame-content {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: var(--space-3xl) auto 0;
+            line-height: var(--line-height-relaxed);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container" style="padding-top: var(--space-3xl);">
+        <section class="section">
+            <header style="text-align: center; margin-bottom: var(--space-2xl);">
+                <h1>Device Frames</h1>
+                <p>Preview your site inside realistic hardware shells for professional design reviews.</p>
+            </header>
+
+            <div class="grid-toolbar">
+                <div class="url-input-group" style="flex: 1;">
+                    <input type="text" id="frameUrlInput" class="control-input" placeholder="https://example.com" value="https://example.com">
+                    <button onclick="updateFrames()" class="btn btn-primary btn-sm">Refresh View</button>
+                </div>
+                <div class="device-buttons">
+                    <button class="btn btn-outline btn-sm" onclick="switchDevice('phone')">Smartphone</button>
+                    <button class="btn btn-outline btn-sm" onclick="switchDevice('laptop')">Laptop</button>
+                </div>
+            </div>
+
+            <div class="frames-workspace">
+                <div id="phoneView" class="phone-frame">
+                    <iframe class="frame-content" id="phoneIframe" src="https://example.com"></iframe>
+                </div>
+
+                <div id="laptopView" class="laptop-frame">
+                    <div class="laptop-screen">
+                        <iframe class="frame-content" id="laptopIframe" src="https://example.com"></iframe>
+                    </div>
+                    <div class="laptop-base"></div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section article-content">
+            <h2>Contextual Design Visualization</h2>
+            <p>
+                Seeing a website in a browser window is functional, but seeing it inside a **Device Frame** provides 
+                the psychological context needed for high-level design decisions. In 2026, the boundary between 
+                software and hardware design is thinner than ever.
+            </p>
+            <h3>Perfecting the "Look and Feel"</h3>
+            <p>
+                By using realistic hardware mockups, you can verify how your safe-area insets work with modern 
+                device notches and rounded corners. This is particularly useful for presenting work to stakeholders 
+                who may not be able to visualize how a flat layout will appear in a user's hand.
+            </p>
+            <blockquote>
+                "Good design is obvious. Great design is transparent—it feels at home on the device it's built for."
+            </blockquote>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <script src="../script.js"></script>
+    <script>
+        function updateFrames() {
+            const url = document.getElementById('frameUrlInput').value;
+            const cleanUrl = url.startsWith('http') ? url : 'https://' + url;
+            document.getElementById('phoneIframe').src = cleanUrl;
+            document.getElementById('laptopIframe').src = cleanUrl;
+        }
+
+        function switchDevice(type) {
+            const phone = document.getElementById('phoneView');
+            const laptop = document.getElementById('laptopView');
+
+            if(type === 'phone') {
+                phone.style.display = 'block';
+                laptop.style.display = 'none';
+            } else {
+                phone.style.display = 'none';
+                laptop.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P5WHL495HY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P5WHL495HY');
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+     crossorigin="anonymous"></script>
+    
+ <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Multi-Device Grid Tool",
+  "description": "A professional developer tool for simultaneous responsive testing across multiple device viewports in a single grid layout.",
+  "url": "https://mobiview.github.io/tools/device-grid",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Simultaneous multi-device preview",
+    "Real-time URL synchronization",
+    "Customizable grid layouts",
+    "Zoom and scaling controls"
+  ]
+}
+</script>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Device Grid - Responsive Testing Tool | Mobile Viewer Io</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .grid-workspace {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-xl);
+            padding: var(--space-xl) 0;
+            background: var(--color-bg-primary);
+            min-height: 600px;
+        }
+
+        .device-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .device-label {
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        .device-wrapper {
+            background: white;
+            border: 8px solid #1e293b;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .grid-iframe {
+            border: none;
+            background: white;
+        }
+
+        .grid-toolbar {
+            background: var(--color-bg-secondary);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--space-lg);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: var(--line-height-relaxed);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container" style="padding-top: var(--space-3xl);">
+        <section class="section">
+            <header style="text-align: center; margin-bottom: var(--space-2xl);">
+                <h1>Multi-Device Grid</h1>
+                <p>Compare your responsive design across mobile, tablet, and desktop viewports simultaneously.</p>
+            </header>
+
+            <div class="grid-toolbar">
+                <div class="url-input-group" style="flex: 1;">
+                    <input type="text" id="gridUrlInput" class="control-input" placeholder="https://yourwebsite.com" value="https://example.com">
+                    <button onclick="updateGrid()" class="btn btn-primary btn-sm">Sync Grid</button>
+                </div>
+                <div class="device-buttons">
+                    <button class="btn btn-outline btn-sm" onclick="toggleLayout('mobile')">Mobile Only</button>
+                    <button class="btn btn-outline btn-sm" onclick="toggleLayout('all')">Show All</button>
+                </div>
+            </div>
+
+            <div class="grid-workspace" id="deviceGrid">
+                <div class="device-container" data-type="mobile">
+                    <span class="device-label">iPhone SE (375 × 667)</span>
+                    <div class="device-wrapper">
+                        <iframe class="grid-iframe" id="frame-mobile" src="https://example.com" width="375" height="667"></iframe>
+                    </div>
+                </div>
+                <div class="device-container" data-type="tablet">
+                    <span class="device-label">iPad Air (810 × 1080)</span>
+                    <div class="device-wrapper">
+                        <iframe class="grid-iframe" id="frame-tablet" src="https://example.com" width="405" height="540" style="transform: scale(0.5); transform-origin: 0 0;"></iframe>
+                    </div>
+                </div>
+                <div class="device-container" data-type="desktop">
+                    <span class="device-label">Small Desktop (1024 × 768)</span>
+                    <div class="device-wrapper">
+                        <iframe class="grid-iframe" id="frame-desktop" src="https://example.com" width="512" height="384" style="transform: scale(0.5); transform-origin: 0 0;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section">
+            <div class="features-grid">
+                <div class="card">
+                    <h3>Synchronized Browsing</h3>
+                    <p>Enter a URL once and see it propagate across every device in the grid instantly.</p>
+                </div>
+                <div class="card">
+                    <h3>Visual Comparison</h3>
+                    <p>Easily spot layout shifts or CSS bugs that only appear at specific breakpoints.</p>
+                </div>
+                <div class="card">
+                    <h3>Presentation Ready</h3>
+                    <p>Perfect for client walkthroughs to demonstrate the responsive nature of a project.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section article-content">
+            <h2>The Importance of Multi-Device Testing in 2026</h2>
+            <p>
+                As the web continues to fragment across thousands of different screen sizes, from foldable phones to ultra-wide monitors, 
+                testing a website's responsiveness has become more complex than ever. A design that looks perfect on an iPhone 15 Pro 
+                might fail catastrophically on a budget Android device or a landscape-oriented tablet.
+            </p>
+            <h3>Why Single-Viewport Testing Isn't Enough</h3>
+            <p>
+                Traditionally, developers used the "toggle device toolbar" in Chrome DevTools. While useful, it requires manual 
+                switching between views. The **Multi-Device Grid** solves this by providing <strong>parallel observation</strong>. 
+                When you can see your navigation menu on mobile and desktop side-by-side, you immediately notice if the 
+                transition between the "hamburger" icon and the full menu is fluid and consistent.
+            </p>
+            <blockquote>
+                "Responsive design is not just about fitting things on a screen; it's about maintaining context and usability across the entire digital spectrum."
+            </blockquote>
+            <h3>Optimizing Performance Across the Grid</h3>
+            <p>
+                Testing in a grid also highlights performance issues. If the mobile viewport lags while the desktop remains smooth, 
+                it’s a clear indicator that your heavy assets or JavaScript execution are taxing lower-powered mobile processors. 
+                Use this tool to verify that your `srcset` images are loading correctly and that your "above the fold" content 
+                remains prioritized regardless of the aspect ratio.
+            </p>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <script src="../script.js"></script>
+    <script>
+        function updateGrid() {
+            const url = document.getElementById('gridUrlInput').value;
+            const frames = document.querySelectorAll('.grid-iframe');
+            frames.forEach(frame => {
+                frame.src = url.startsWith('http') ? url : 'https://' + url;
+            });
+        }
+
+        function toggleLayout(type) {
+            const containers = document.querySelectorAll('.device-container');
+            containers.forEach(c => {
+                if(type === 'all') {
+                    c.style.display = 'flex';
+                } else {
+                    c.style.display = c.dataset.type === type ? 'flex' : 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

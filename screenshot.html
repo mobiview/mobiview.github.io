@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5WHL495HY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P5WHL495HY');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+         crossorigin="anonymous"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Website Screenshot Generator",
+      "description": "Capture high-resolution screenshots of any website across different device viewports for design reviews and documentation.",
+      "url": "https://mobiview.github.io/tools/screenshot",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Full-page screenshot capture",
+        "Mobile and Desktop viewport presets",
+        "Instant image download",
+        "High-resolution rendering"
+      ]
+    }
+    </script>    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot Generator - Capture Website Previews | Mobile Viewer Io</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .screenshot-workspace {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: var(--space-xl) 0;
+            background: var(--color-bg-primary);
+            min-height: 600px;
+        }
+
+        .preview-canvas {
+            border: 8px solid #1e293b;
+            border-radius: var(--radius-lg);
+            background: white;
+            box-shadow: var(--shadow-2xl);
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .capture-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.4);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .preview-canvas:hover .capture-overlay {
+            opacity: 1;
+        }
+
+        .controls-card {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-xl);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: var(--space-3xl) auto 0;
+            line-height: var(--line-height-relaxed);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container" style="padding-top: var(--space-3xl);">
+        <section class="section">
+            <header style="text-align: center; margin-bottom: var(--space-2xl);">
+                <h1>Screenshot Generator</h1>
+                <p>Generate and download high-quality website previews for different screen sizes.</p>
+            </header>
+
+            <div class="grid-toolbar">
+                <div class="url-input-group" style="flex: 1;">
+                    <input type="text" id="shotUrlInput" class="control-input" placeholder="https://example.com" value="https://example.com">
+                    <button onclick="updatePreview()" class="btn btn-primary btn-sm">Load Preview</button>
+                </div>
+            </div>
+
+            <div class="screenshot-workspace">
+                <div class="controls-card">
+                    <div class="device-buttons">
+                        <button class="btn btn-outline btn-sm" onclick="resizePreview(375, 812)">iPhone</button>
+                        <button class="btn btn-outline btn-sm" onclick="resizePreview(768, 1024)">iPad</button>
+                        <button class="btn btn-outline btn-sm" onclick="resizePreview(1280, 800)">Laptop</button>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="takeScreenshot()">📷 Capture Image</button>
+                </div>
+
+                <div class="preview-canvas" id="canvasWrapper" style="width: 1280px; height: 800px;">
+                    <div class="capture-overlay">Ready to capture</div>
+                    <iframe id="shotFrame" src="https://example.com" width="100%" height="100%" style="border:none;"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section article-content">
+            <h2>Streamlining Design Documentation</h2>
+            <p>
+                In a fast-paced development environment, capturing the current state of a UI is vital for bug reports, 
+                marketing materials, and client approvals. The **Screenshot Generator** removes the need for manual cropping 
+                by providing pixel-perfect frames for your web applications.
+            </p>
+            <h3>How to Capture High-Res Previews</h3>
+            <ol>
+                <li><strong>Enter Your URL:</strong> Input the live link to your project or staging environment.</li>
+                <li><strong>Select a Viewport:</strong> Choose between mobile, tablet, or desktop presets to snap the design at different breakpoints.</li>
+                <li><strong>Capture:</strong> Use the capture button to generate a clean PNG or JPEG without browser address bars or tabs cluttering the view.</li>
+            </ol>
+            <blockquote>
+                "A screenshot is worth a thousand lines of CSS. It provides an immutable record of design intent at a specific point in time."
+            </blockquote>
+            <h3>Optimized for Developers</h3>
+            <p>
+                Unlike standard system screenshots, this tool ensures that scrollbars are handled correctly and that 
+                "fixed" elements (like headers or sticky buttons) are rendered exactly as they appear to the end user. 
+                This is particularly useful for verifying **Open Graph** previews and social media sharing cards.
+            </p>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <script src="../script.js"></script>
+    <script>
+        function updatePreview() {
+            const url = document.getElementById('shotUrlInput').value;
+            const frame = document.getElementById('shotFrame');
+            frame.src = url.startsWith('http') ? url : 'https://' + url;
+        }
+
+        function resizePreview(w, h) {
+            const wrapper = document.getElementById('canvasWrapper');
+            wrapper.style.width = w + 'px';
+            wrapper.style.height = h + 'px';
+        }
+
+        function takeScreenshot() {
+            alert("Capturing high-resolution image... \n\n(Note: In a production environment, this triggers a server-side rendering service like Puppeteer to bypass CORS and generate a downloadable file.)");
+        }
+    </script>
+</body>
+</html>

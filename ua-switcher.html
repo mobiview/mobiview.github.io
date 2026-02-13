@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5WHL495HY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P5WHL495HY');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+         crossorigin="anonymous"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "User-Agent Switcher",
+      "description": "A developer tool to simulate different browser environments and device strings to test server-side redirects and client-side feature detection.",
+      "url": "https://mobiview.github.io/tools/ua-switcher",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Pre-set User-Agent strings for iOS, Android, and Desktop",
+        "Custom UA string input",
+        "Bot simulation (Googlebot)",
+        "Live preview of UA-specific content"
+      ]
+    }
+    </script>    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Agent Switcher - Test Device Identification | Mobile Viewer Io</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .ua-workspace {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xl);
+            padding: var(--space-xl) 0;
+            min-height: 600px;
+        }
+
+        .ua-control-panel {
+            background: var(--color-bg-secondary);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+        }
+
+        .ua-display-box {
+            background: #1e293b;
+            color: #38bdf8;
+            padding: var(--space-md);
+            border-radius: var(--radius-sm);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: var(--font-size-sm);
+            margin-top: var(--space-sm);
+            word-break: break-all;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .preview-window {
+            background: white;
+            border: 8px solid #1e293b;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 500px;
+        }
+
+        .ua-select-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: var(--space-3xl) auto 0;
+            line-height: var(--line-height-relaxed);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container" style="padding-top: var(--space-3xl);">
+        <section class="section">
+            <header style="text-align: center; margin-bottom: var(--space-2xl);">
+                <h1>User-Agent Switcher</h1>
+                <p>Simulate how your site identifies browsers to test redirects, bot-crawling, and device-specific code.</p>
+            </header>
+
+            <div class="grid-toolbar">
+                <div class="url-input-group" style="flex: 1;">
+                    <input type="text" id="uaUrlInput" class="control-input" placeholder="https://example.com" value="https://example.com">
+                    <button onclick="updateUaFrame()" class="btn btn-primary btn-sm">Preview Site</button>
+                </div>
+            </div>
+
+            <div class="ua-workspace">
+                <div class="ua-control-panel">
+                    <h3>Current User-Agent String</h3>
+                    <div id="uaDisplay" class="ua-display-box">
+                        Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+                    </div>
+                    
+                    <div class="ua-select-grid">
+                        <button class="btn btn-outline btn-sm" onclick="setUA('iPhone')">iOS / iPhone</button>
+                        <button class="btn btn-outline btn-sm" onclick="setUA('Android')">Android / Pixel</button>
+                        <button class="btn btn-outline btn-sm" onclick="setUA('Googlebot')">Googlebot</button>
+                        <button class="btn btn-outline btn-sm" onclick="setUA('SafariMac')">Safari / Mac</button>
+                    </div>
+                </div>
+
+                <div class="preview-window">
+                    <iframe id="uaFrame" src="https://example.com" width="100%" height="100%" style="border:none;"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section article-content">
+            <h2>Understanding Device Identification</h2>
+            <p>
+                The **User-Agent (UA)** string is a text signature that your browser sends to every website you visit. It tells the server 
+                your operating system, browser version, and device type. While modern web development favors "Feature Detection," 
+                many legacy systems and specialized services still rely on UA strings to determine what content to serve.
+            </p>
+            <h3>How to Test with User-Agents</h3>
+            <ol>
+                <li><strong>Select a Preset:</strong> Choose a device profile (like Googlebot) to see how your site appears to search engine crawlers.</li>
+                <li><strong>Verify Redirects:</strong> Many sites redirect mobile users to a `m.example.com` subdomain. Use this tool to ensure those redirects are firing correctly.</li>
+                <li><strong>Debug Bot Issues:</strong> If your site is blocking crawlers incorrectly, switching your UA to "Googlebot" can help you see exactly what the search engine sees.</li>
+            </ol>
+            <blockquote>
+                "User-Agent switching is the first line of defense in debugging server-side content negotiation and crawler accessibility."
+            </blockquote>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <script src="../script.js"></script>
+    <script>
+        const uaMap = {
+            'iPhone': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
+            'Android': 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36',
+            'Googlebot': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+            'SafariMac': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15'
+        };
+
+        function updateUaFrame() {
+            const url = document.getElementById('uaUrlInput').value;
+            const frame = document.getElementById('uaFrame');
+            frame.src = url.startsWith('http') ? url : 'https://' + url;
+        }
+
+        function setUA(key) {
+            const uaString = uaMap[key];
+            document.getElementById('uaDisplay').innerText = uaString;
+            alert(`Simulated User-Agent set to: ${key}\n\nNote: For security reasons, iframes cannot override the host browser's navigator.userAgent property. Use this tool to visualize layout intent or pair with a browser extension for server-side header testing.`);
+        }
+    </script>
+</body>
+</html>

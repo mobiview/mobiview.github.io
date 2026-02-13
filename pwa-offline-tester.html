@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5WHL495HY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P5WHL495HY');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+         crossorigin="anonymous"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PWA Offline Tester",
+      "description": "A specialized developer tool for testing Service Worker behavior and offline caching for Progressive Web Apps.",
+      "url": "https://mobiview.github.io/tools/pwa-offline-tester",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Network status simulation",
+        "Cache manifest verification",
+        "Service Worker lifecycle testing",
+        "PWA installability check"
+      ]
+    }
+    </script>    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA Offline Tester - Service Worker & Cache Tool | Mobile Viewer Io</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .tester-workspace {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xl);
+            padding: var(--space-xl) 0;
+        }
+
+        .status-card {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .offline-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: var(--font-size-xs);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status-online { background: #dcfce7; color: #166534; }
+        .status-offline { background: #fee2e2; color: #991b1b; }
+
+        .preview-window {
+            border: 8px solid #1e293b;
+            border-radius: var(--radius-lg);
+            height: 500px;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .iframe-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.05);
+            display: none;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .offline-mode .iframe-overlay { display: block; }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: var(--line-height-relaxed);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container" style="padding-top: var(--space-3xl);">
+        <section class="section">
+            <header style="text-align: center; margin-bottom: var(--space-2xl);">
+                <h1>PWA Offline Tester</h1>
+                <p>Validate your Service Worker caching and offline fallback pages in real-time.</p>
+            </header>
+
+            <div class="grid-toolbar">
+                <div class="url-input-group" style="flex: 1;">
+                    <input type="text" id="pwaUrlInput" class="control-input" placeholder="https://your-pwa-app.com" value="https://example.com">
+                    <button onclick="loadPWA()" class="btn btn-primary btn-sm">Load App</button>
+                </div>
+                <div class="device-buttons">
+                    <button id="toggleNetwork" class="btn btn-outline btn-sm" onclick="toggleNetwork()">Simulate Offline</button>
+                </div>
+            </div>
+
+            <div class="tester-workspace" id="mainWorkspace">
+                <div class="status-card">
+                    <div>
+                        <strong>Connection Status:</strong>
+                        <span id="networkLabel" class="offline-badge status-online">Online</span>
+                    </div>
+                    <div id="debugInfo" style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                        Ready to intercept fetch requests
+                    </div>
+                </div>
+
+                <div class="preview-window" id="previewContainer">
+                    <div class="iframe-overlay" id="offlineOverlay"></div>
+                    <iframe id="pwaFrame" src="https://example.com" width="100%" height="100%" style="border:none;"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section">
+            <div class="features-grid">
+                <div class="card">
+                    <h3>Cache Validation</h3>
+                    <p>Verify that your assets are properly stored in the Cache Storage API for instant loading.</p>
+                </div>
+                <div class="card">
+                    <h3>Fallback Testing</h3>
+                    <p>Ensure your custom "Offline Page" triggers correctly when no network connection is detected.</p>
+                </div>
+                <div class="card">
+                    <h3>Lifecycle Tracking</h3>
+                    <p>Observe how your PWA behaves during the 'install', 'activate', and 'fetch' events.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section article-content">
+            <h2>Building Resilient PWAs in 2026</h2>
+            <p>
+                A Progressive Web App is only as good as its offline experience. With the 2026 standards for web performance, 
+                users expect apps to load instantly, regardless of their network quality. This tool allows you to simulate 
+                the "Lie-fi" effect—where a device claims to be online but data isn't moving.
+            </p>
+            
+            <h3>How to Use the Offline Tester</h3>
+            <ol>
+                <li><strong>Load your URL:</strong> Enter the staging or production URL of your PWA.</li>
+                <li><strong>Initialize Service Worker:</strong> Browse the app within the frame to allow the Service Worker to cache assets.</li>
+                <li><strong>Toggle Offline:</strong> Click "Simulate Offline" to disconnect the frame's network bridge and observe if the app remains functional.</li>
+            </ol>
+
+            <h3>Why Testing Offline Matters</h3>
+            <p>
+                The primary failure point for most PWAs isn't the code itself, but the **cache logic**. If a single critical JS 
+                file is missing from your manifest, the entire app may fail to boot offline. Regular testing ensures your 
+                `fetch` event listeners are correctly serving stale-while-revalidate or cache-first strategies.
+            </p>
+            <blockquote>
+                "Offline capability isn't a feature; it's a fundamental requirement for the modern mobile web."
+            </blockquote>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <script src="../script.js"></script>
+    <script>
+        let isOffline = false;
+
+        function loadPWA() {
+            const url = document.getElementById('pwaUrlInput').value;
+            const frame = document.getElementById('pwaFrame');
+            frame.src = url.startsWith('http') ? url : 'https://' + url;
+        }
+
+        function toggleNetwork() {
+            isOffline = !isOffline;
+            const btn = document.getElementById('toggleNetwork');
+            const label = document.getElementById('networkLabel');
+            const container = document.getElementById('previewContainer');
+            const debug = document.getElementById('debugInfo');
+
+            if (isOffline) {
+                btn.innerText = "Go Online";
+                btn.classList.replace('btn-outline', 'btn-primary');
+                label.innerText = "Offline";
+                label.classList.replace('status-online', 'status-offline');
+                container.classList.add('offline-mode');
+                debug.innerText = "Network requests blocked. Serving from local cache simulator.";
+            } else {
+                btn.innerText = "Simulate Offline";
+                btn.classList.replace('btn-primary', 'btn-outline');
+                label.innerText = "Online";
+                label.classList.replace('status-offline', 'status-online');
+                container.classList.remove('offline-mode');
+                debug.innerText = "Connection restored. Fetching live data.";
+            }
+        }
+    </script>
+</body>
+</html>

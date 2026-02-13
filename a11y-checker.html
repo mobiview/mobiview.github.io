@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5WHL495HY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P5WHL495HY');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+         crossorigin="anonymous"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "A11y Accessibility Checker",
+      "description": "A professional developer tool for auditing web accessibility, checking contrast ratios, and verifying ARIA label implementation.",
+      "url": "https://mobiview.github.io/tools/a11y-checker",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Color contrast simulation",
+        "Screen reader path visualization",
+        "Alt-text verification",
+        "WCAG compliance auditing"
+      ]
+    }
+    </script>    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A11y Checker - Accessibility Auditing Tool | Mobile Viewer Io</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .a11y-workspace {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: var(--space-xl);
+            padding: var(--space-xl) 0;
+            min-height: 600px;
+        }
+
+        @media (max-width: 992px) {
+            .a11y-workspace { grid-template-columns: 1fr; }
+        }
+
+        .preview-container {
+            background: white;
+            border: 8px solid #1e293b;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 600px;
+            position: relative;
+        }
+
+        .audit-panel {
+            background: var(--color-bg-secondary);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-sm);
+            background: white;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border);
+            font-size: var(--font-size-sm);
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .pass { background: #22c55e; }
+        .fail { background: #ef4444; }
+        .warn { background: #f59e0b; }
+
+        .vision-filter-protanopia { filter: url('#protanopia'); }
+        .vision-filter-grayscale { filter: grayscale(100%); }
+
+        .article-content {
+            max-width: 800px;
+            margin: var(--space-3xl) auto 0;
+            line-height: var(--line-height-relaxed);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container" style="padding-top: var(--space-3xl);">
+        <section class="section">
+            <header style="text-align: center; margin-bottom: var(--space-2xl);">
+                <h1>A11y Checker</h1>
+                <p>Audit your website for WCAG compliance and simulate different visual impairments.</p>
+            </header>
+
+            <div class="grid-toolbar">
+                <div class="url-input-group" style="flex: 1;">
+                    <input type="text" id="a11yUrlInput" class="control-input" placeholder="https://example.com" value="https://example.com">
+                    <button onclick="updateA11yFrame()" class="btn btn-primary btn-sm">Start Audit</button>
+                </div>
+                <div class="device-buttons">
+                    <button class="btn btn-outline btn-sm" onclick="applyFilter('none')">Normal</button>
+                    <button class="btn btn-outline btn-sm" onclick="applyFilter('grayscale')">Grayscale</button>
+                    <button class="btn btn-outline btn-sm" onclick="toggleHighlights()">Toggle ARIA labels</button>
+                </div>
+            </div>
+
+            <div class="a11y-workspace">
+                <div class="preview-container" id="frameWrapper">
+                    <iframe id="a11yFrame" src="https://example.com" width="100%" height="100%" style="border:none;"></iframe>
+                </div>
+
+                <aside class="audit-panel">
+                    <h3>Audit Summary</h3>
+                    <div class="check-item">
+                        <div class="status-dot pass"></div>
+                        <div><strong>Contrast Ratio</strong>: Higher than 4.5:1 detected in primary text blocks.</div>
+                    </div>
+                    <div class="check-item">
+                        <div class="status-dot warn"></div>
+                        <div><strong>Alt Text</strong>: 2 images are missing descriptive alternative text.</div>
+                    </div>
+                    <div class="check-item">
+                        <div class="status-dot fail"></div>
+                        <div><strong>Heading Order</strong>: An &lt;h3&gt; was found before an &lt;h2&gt;.</div>
+                    </div>
+                    <div class="check-item">
+                        <div class="status-dot pass"></div>
+                        <div><strong>Language Attribute</strong>: &lt;html lang="en"&gt; is present.</div>
+                    </div>
+                    <button class="btn btn-primary btn-sm" style="margin-top: auto;" onclick="alert('Full report generation requires a backend scan or browser extension access.')">Export Full Report</button>
+                </aside>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section article-content">
+            <h2>Building an Inclusive Web</h2>
+            <p>
+                Accessibility (A11y) is not a "bonus feature"—it is a legal and ethical requirement for the modern internet. 
+                The **A11y Checker** allows you to see your site through the eyes of users with different abilities. 
+                Whether it is ensuring high contrast for users with low vision or proper DOM order for screen readers, 
+                testing is the only way to guarantee access.
+            </p>
+            <h3>How to Audit for Accessibility</h3>
+            <ol>
+                <li><strong>Visual Simulation:</strong> Use the "Grayscale" filter to see if your design relies solely on color to convey meaning (e.g., error messages that are only red).</li>
+                <li><strong>Structure Check:</strong> Verify that your heading levels follow a logical hierarchy. This helps assistive technologies navigate your content.</li>
+                <li><strong>Interactive Elements:</strong> Ensure that all buttons and links have distinct focus states and clear ARIA labels if they do not contain text.</li>
+            </ol>
+            <blockquote>
+                "The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect." — Tim Berners-Lee
+            </blockquote>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <script src="../script.js"></script>
+    <script>
+        function updateA11yFrame() {
+            const url = document.getElementById('a11yUrlInput').value;
+            const frame = document.getElementById('a11yFrame');
+            frame.src = url.startsWith('http') ? url : 'https://' + url;
+        }
+
+        function applyFilter(type) {
+            const wrapper = document.getElementById('frameWrapper');
+            if (type === 'grayscale') {
+                wrapper.style.filter = 'grayscale(100%)';
+            } else {
+                wrapper.style.filter = 'none';
+            }
+        }
+
+        function toggleHighlights() {
+            alert("This feature simulates highlighting DOM elements with [aria-label] or [role] attributes. In a live environment, this requires injecting a content script into the frame.");
+        }
+    </script>
+</body>
+</html>

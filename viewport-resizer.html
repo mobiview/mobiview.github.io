@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5WHL495HY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P5WHL495HY');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+         crossorigin="anonymous"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Viewport Resizer Tool",
+      "description": "An interactive responsive design tester that allows developers to resize viewports dynamically and test websites against custom dimensions.",
+      "url": "https://mobiview.github.io/tools/viewport-resizer",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Dynamic width and height resizing",
+        "Pre-set device dimensions",
+        "Real-time URL preview",
+        "Orientation toggle (Portrait/Landscape)"
+      ]
+    }
+    </script>    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewport Resizer - Interactive Responsive Testing | Mobile Viewer Io</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .resizer-workspace {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: var(--space-xl) 0;
+            background: var(--color-bg-primary);
+            min-height: 700px;
+        }
+
+        .resizer-toolbar {
+            background: var(--color-bg-secondary);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--space-lg);
+            width: 100%;
+        }
+
+        .viewport-container {
+            position: relative;
+            background: white;
+            border: 12px solid #1e293b;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-2xl);
+            transition: width 0.3s ease, height 0.3s ease;
+            overflow: hidden;
+        }
+
+        .viewport-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+
+        .dimension-display {
+            margin-top: var(--space-md);
+            font-family: monospace;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            background: var(--color-bg-secondary);
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .input-number {
+            width: 80px;
+            padding: 4px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: var(--space-3xl) auto 0;
+            line-height: var(--line-height-relaxed);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container" style="padding-top: var(--space-3xl);">
+        <section class="section">
+            <header style="text-align: center; margin-bottom: var(--space-2xl);">
+                <h1>Viewport Resizer</h1>
+                <p>Precisely test your website by mimicking specific screen dimensions and orientations.</p>
+            </header>
+
+            <div class="resizer-toolbar">
+                <div class="url-input-group" style="flex: 2; min-width: 300px;">
+                    <input type="text" id="resizerUrlInput" class="control-input" placeholder="https://yourwebsite.com" value="https://example.com">
+                    <button onclick="updateIframe()" class="btn btn-primary btn-sm">Load</button>
+                </div>
+                
+                <div class="control-group">
+                    <input type="number" id="vWidth" class="input-number" value="375">
+                    <span>×</span>
+                    <input type="number" id="vHeight" class="input-number" value="667">
+                    <button class="btn btn-outline btn-sm" onclick="applyDimensions()">Apply</button>
+                </div>
+
+                <div class="device-buttons">
+                    <button class="btn btn-outline btn-sm" onclick="setPreset(375, 667)">Mobile</button>
+                    <button class="btn btn-outline btn-sm" onclick="setPreset(768, 1024)">Tablet</button>
+                    <button class="btn btn-outline btn-sm" onclick="setPreset(1280, 800)">Desktop</button>
+                    <button class="btn btn-outline btn-sm" onclick="rotate()">Rotate</button>
+                </div>
+            </div>
+
+            <div class="resizer-workspace">
+                <div class="viewport-container" id="viewportContainer" style="width: 375px; height: 667px;">
+                    <iframe class="viewport-iframe" id="resizerFrame" src="https://example.com"></iframe>
+                </div>
+                <div class="dimension-display" id="dimIndicator">375px × 667px</div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section article-content">
+            <h2>Precision Testing for Modern Breakpoints</h2>
+            <p>
+                The **Viewport Resizer** is an essential tool for developers who need to move beyond standard device presets. 
+                While many tools offer "Mobile" or "Tablet" views, modern CSS requires testing for the "in-between" states—the exact 
+                pixels where your media queries trigger.
+            </p>
+            <h3>Mastering the Fluid Web</h3>
+            <p>
+                By manually adjusting the width and height, you can find the exact breaking point of your navigation menus, 
+                flexbox layouts, and typography. This tool simulates the viewport environment, allowing you to ensure that 
+                content never overflows and accessibility remains intact throughout the resize transition.
+            </p>
+            <blockquote>
+                "A truly responsive site isn't just one that looks good at 320px and 1200px; it's one that remains functional at every single pixel in between."
+            </blockquote>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <script src="../script.js"></script>
+    <script>
+        function updateIframe() {
+            const url = document.getElementById('resizerUrlInput').value;
+            const frame = document.getElementById('resizerFrame');
+            frame.src = url.startsWith('http') ? url : 'https://' + url;
+        }
+
+        function applyDimensions() {
+            const w = document.getElementById('vWidth').value;
+            const h = document.getElementById('vHeight').value;
+            const container = document.getElementById('viewportContainer');
+            const indicator = document.getElementById('dimIndicator');
+
+            container.style.width = w + 'px';
+            container.style.height = h + 'px';
+            indicator.innerText = `${w}px × ${h}px`;
+        }
+
+        function setPreset(w, h) {
+            document.getElementById('vWidth').value = w;
+            document.getElementById('vHeight').value = h;
+            applyDimensions();
+        }
+
+        function rotate() {
+            const wInput = document.getElementById('vWidth');
+            const hInput = document.getElementById('vHeight');
+            const temp = wInput.value;
+            wInput.value = hInput.value;
+            hInput.value = temp;
+            applyDimensions();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5WHL495HY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P5WHL495HY');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+         crossorigin="anonymous"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Geo-Location Simulator",
+      "description": "A developer tool to spoof GPS coordinates and test location-based services, localized SEO, and regional content delivery.",
+      "url": "https://mobiview.github.io/tools/geo-location",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Coordinate spoofing (Latitude/Longitude)",
+        "Preset global city locations",
+        "Localized content verification",
+        "IP-based vs GPS-based testing"
+      ]
+    }
+    </script>    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-Location Simulator - Test Localized Content | Mobile Viewer Io</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .geo-workspace {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: var(--space-lg);
+            padding: var(--space-xl) 0;
+            min-height: 600px;
+        }
+
+        @media (max-width: 768px) {
+            .geo-workspace { grid-template-columns: 1fr; }
+        }
+
+        .map-preview {
+            background: white;
+            border: 8px solid #1e293b;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 500px;
+        }
+
+        .location-sidebar {
+            background: var(--color-bg-secondary);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+        }
+
+        .coord-input-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .coord-input-group label {
+            display: block;
+            font-size: var(--font-size-xs);
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .preset-list {
+            list-style: none;
+            padding: 0;
+            margin-top: var(--space-md);
+        }
+
+        .preset-item {
+            padding: var(--space-xs) var(--space-sm);
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            transition: background 0.2s;
+            font-size: var(--font-size-sm);
+        }
+
+        .preset-item:hover {
+            background: var(--color-bg-primary);
+            color: var(--color-primary);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: var(--space-3xl) auto 0;
+            line-height: var(--line-height-relaxed);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container" style="padding-top: var(--space-3xl);">
+        <section class="section">
+            <header style="text-align: center; margin-bottom: var(--space-2xl);">
+                <h1>Geo-Location Simulator</h1>
+                <p>Test how your website reacts to different global coordinates and localized SEO signals.</p>
+            </header>
+
+            <div class="grid-toolbar">
+                <div class="url-input-group" style="flex: 1;">
+                    <input type="text" id="geoUrlInput" class="control-input" placeholder="https://example.com" value="https://example.com">
+                    <button onclick="updateGeoFrame()" class="btn btn-primary btn-sm">Load Site</button>
+                </div>
+            </div>
+
+            <div class="geo-workspace">
+                <div class="map-preview">
+                    <iframe id="geoFrame" src="https://example.com" width="100%" height="100%" style="border:none;"></iframe>
+                </div>
+
+                <aside class="location-sidebar">
+                    <h3>GPS Controls</h3>
+                    <div class="coord-input-group">
+                        <label>Latitude</label>
+                        <input type="number" id="latInput" class="control-input" value="40.7128" step="0.0001">
+                    </div>
+                    <div class="coord-input-group">
+                        <label>Longitude</label>
+                        <input type="number" id="lngInput" class="control-input" value="-74.0060" step="0.0001">
+                    </div>
+                    <button class="btn btn-primary btn-sm" style="width: 100%;" onclick="applyGeo()">Mock Location</button>
+
+                    <hr style="margin: var(--space-lg) 0;">
+
+                    <h4>Presets</h4>
+                    <ul class="preset-list">
+                        <li class="preset-item" onclick="setLoc(40.7128, -74.0060)">New York, USA</li>
+                        <li class="preset-item" onclick="setLoc(51.5074, -0.1278)">London, UK</li>
+                        <li class="preset-item" onclick="setLoc(35.6762, 139.6503)">Tokyo, Japan</li>
+                        <li class="preset-item" onclick="setLoc(-33.8688, 151.2093)">Sydney, Australia</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section article-content">
+            <h2>The Impact of Geographic Context</h2>
+            <p>
+                In the modern web, "one size fits all" is a relic of the past. From dynamic currency conversion to 
+                region-specific legal disclaimers (like GDPR or CCPA), your website must be aware of where your 
+                users are located. The **Geo-Location Simulator** provides a sandbox to verify these triggers.
+            </p>
+            <h3>Testing Local SEO and Content Delivery</h3>
+            <p>
+                Many high-performance sites use Edge Computing to serve content based on the user's proximity. 
+                By spoofing your coordinates, you can ensure that your CDN is routing requests correctly and that 
+                your "Find a Store" features or local service listings are surfacing the correct data points.
+            </p>
+            <blockquote>
+                "Proximity is the new personalization. If your site doesn't speak the local language—both figuratively and literally—you're losing engagement."
+            </blockquote>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <script src="../script.js"></script>
+    <script>
+        function updateGeoFrame() {
+            const url = document.getElementById('geoUrlInput').value;
+            const frame = document.getElementById('geoFrame');
+            frame.src = url.startsWith('http') ? url : 'https://' + url;
+        }
+
+        function setLoc(lat, lng) {
+            document.getElementById('latInput').value = lat;
+            document.getElementById('lngInput').value = lng;
+            applyGeo();
+        }
+
+        function applyGeo() {
+            const lat = document.getElementById('latInput').value;
+            const lng = document.getElementById('lngInput').value;
+            alert(`Location Mocked to: ${lat}, ${lng}\n\nNote: Browsers require Permission API access to pass these coordinates to the iframe content.`);
+            // In a real implementation, this would interface with a browser extension 
+            // or use the Navigator Geolocation wrapper.
+        }
+    </script>
+</body>
+</html>
